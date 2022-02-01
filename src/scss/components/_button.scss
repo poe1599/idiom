@@ -1,0 +1,136 @@
+// main
+$main1--light: #3947d4;
+$main1--bright: #2d3ac3;
+$main1--dull: #2c37ac;
+
+$main2--light: #e28619;
+$main2--bright: #dd7c0a;
+$main2--dull: #d17304;
+
+$main3: #da1e28;
+
+$support1: #fbb03b;
+$support2: #26ca8b;
+$support3: #505cd4;
+$support4: #26cac0;
+$support5: #4b5a7b;
+
+// white, grey and black
+$white: #fff;
+$grey--light: #d2d2d2;
+$grey--bright: #9b9b9b;
+$grey--dull: #8d8d8d;
+$grey--deep: #737373;
+$black: #373a3f;
+
+$dark--light: #f4f4f4;
+$dark--bright: #e5e5e5;
+$dark--dull: #4a4a4a;
+
+// shadow
+$shadow: 4px 4px 20px 0 rgba(0, 0, 0, 0.06);
+
+//
+%buttonShape {
+  padding: 12px;
+  height: 48px;
+  border-radius: 4px;
+  box-shadow: 4px 8px 20px 0 rgba(0, 0, 0, 0.12);
+}
+
+%font {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.S-button--main {
+  @extend %font;
+
+  @extend %buttonShape;
+
+  color: $white;
+  background-color: $main1--light;
+
+  &:hover {
+    background-color: $main1--bright;
+  }
+
+  &:active {
+    background-color: $main1--dull;
+  }
+}
+
+.S-button--sub {
+  @extend %font;
+
+  @extend %buttonShape;
+
+  color: $white;
+  background-color: $main2--light;
+
+  &:hover {
+    background-color: $main2--bright;
+  }
+
+  &:active {
+    background-color: $main2--dull;
+  }
+}
+
+.S-button--small {
+  @extend %font;
+
+  @extend %buttonShape;
+
+  padding: 4px 12px;
+  height: 32px;
+  color: $white;
+  background-color: $main2--light;
+
+  &:hover {
+    background-color: $main2--bright;
+  }
+
+  &:active {
+    background-color: $main2--dull;
+  }
+}
+
+.S-button--disable {
+  @extend %font;
+
+  @extend %buttonShape;
+
+  color: $grey--dull;
+  background-color: $grey--light;
+  pointer-events: none;
+  cursor: not-allowed;
+  box-shadow: none;
+
+  &:hover,
+  &:active {
+    color: $grey--dull;
+    background-color: $grey--light;
+  }
+}
+
+.S-txtButton--colorful {
+  @extend %font;
+
+  padding: 0;
+  color: $main1--light;
+
+  &:hover,
+  &:active {
+    color: $main1--light;
+  }
+}
+
+.S-txtButton--disable {
+  @extend %font;
+
+  padding: 0;
+  color: $grey--light;
+  pointer-events: none;
+  cursor: not-allowed;
+}
