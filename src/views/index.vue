@@ -12,7 +12,31 @@
       <div class="nav__set"></div>
     </header>
     <SlotMsgBox v-if="control.boxIsOpen" width="343px" :is-open.sync="control.boxIsOpen">
-      <div class="msg">本來是想說明的,但想想還是算了。直接玩吧~</div>
+      <div class="msg">
+        <div class="game">
+          <div class="game__hint">語意說明:<br />形容身心安適，無憂無慮。</div>
+          <div v-for="(i, j) in sample" :key="j" class="game__row" :class="i.class">
+            <div v-for="(k, l) in i.list" :key="l + 't'" class="game__inpGroup">
+              <!-- eslint-disable-next-line vuejs-accessibility/form-control-has-label -->
+              <input
+                id=""
+                v-model="k.val"
+                class="game__inp"
+                :class="{
+                  'game__inp--1': k.type === '1',
+                  'game__inp--2': k.type === '2',
+                  'game__inp--3': k.type === '3',
+                  flipInX: ['1', '2', '3'].includes(k.type),
+                }"
+                type="text"
+                name=""
+                maxlength="1"
+                :disabled="true"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </SlotMsgBox>
     <div class="container">
       <div class="game">
@@ -68,6 +92,35 @@ export default {
         max: 6,
         boxIsOpen: false,
       },
+      sample: [
+        {
+          class: { shake: false },
+          list: [
+            { val: '高', type: '1' },
+            { val: '臥', type: '3' },
+            { val: '安', type: '3' },
+            { val: '枕', type: '2' },
+          ],
+        },
+        {
+          class: { shake: false },
+          list: [
+            { val: '高', type: '1' },
+            { val: '枕', type: '1' },
+            { val: '無', type: '1' },
+            { val: '憂', type: '1' },
+          ],
+        },
+        {
+          class: { shake: false },
+          list: [
+            { val: '', type: '' },
+            { val: '', type: '' },
+            { val: '', type: '' },
+            { val: '', type: '' },
+          ],
+        },
+      ],
     }
   },
   mounted() {
